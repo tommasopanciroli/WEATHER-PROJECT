@@ -4,12 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainContent from './components/MainContent'
 import MyFooter from './components/MyFooter'
+import NotFound from './components/NotFound'
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <CustomNavbar brand="Epi" claim="Meteo" className="mb-5" />
+        <CustomNavbar className="mb-5" />
         <Routes>
           <Route
             path="/"
@@ -17,6 +18,7 @@ function App() {
               <MainContent className="mt-5" fontSize="fs-1" textSize="fs-5" />
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
       <MyFooter />
