@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainContent from './components/MainContent'
 import MyFooter from './components/MyFooter'
 import NotFound from './components/NotFound'
+import NextDays from './components/NextDays'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             }
           />
           <Route path="*" element={<NotFound />} />
+          <Route path="/five-day" element={<NextDays />} />
         </Routes>
       </BrowserRouter>
       <MyFooter />
