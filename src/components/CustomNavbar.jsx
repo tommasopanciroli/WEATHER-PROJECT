@@ -1,43 +1,36 @@
 import { Container, Navbar, Nav } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const CustomNavbar = (props) => {
-  console.log("navbar's props", props)
+  const location = useLocation()
+  console.log('LOCATION', location)
 
   return (
-    <Navbar collapseOnSelect expand="lg">
+    <Navbar
+      expand="lg"
+      className="navbar bg-body-transparent border-bottom border-white"
+    >
       <Container fluid={props.isFluid}>
-        <Navbar.Brand href="#home">EpiMeteo - {props.subtitle}</Navbar.Brand>
+        <Navbar.Brand href="/" style={{ color: 'white' }}>
+          <img
+            src="https://cdn.icon-icons.com/icons2/565/PNG/512/clear-sun_icon-icons.com_54320.png"
+            alt="img"
+            style={{ color: 'white', width: '30px' }}
+          />
+          <span className="ms-3">Epi-Meteo</span>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Link>
+          <Nav className="ms-auto">
+            <Link to="/" className="nav-link text-white">
               <div>Home</div>
             </Link>
-            <Link>
-              <div>Città</div>
+            <Link to="/five-day" className="nav-link text-white">
+              <div> Meteo per i prossimi 5 Giorni</div>
             </Link>
-            <Link>
-              <div>Previsioni</div>
+            <Link to="/preferiti" className="nav-link text-white">
+              <div>Preferiti</div>
             </Link>
-          </Nav>
-          <Nav>
-            <Link>
-              <div>Milano</div>
-            </Link>
-            <Link>
-              <div>Torino</div>
-            </Link>
-            <Link>
-              <div>Roma</div>
-            </Link>
-            <Link>
-              <div>Napoli</div>
-            </Link>
-          </Nav>
-          <Nav>
-            <input type="text" placeholder="La tua città"></input>
-            <button className="ms-3 ">Cerca</button>
           </Nav>
         </Navbar.Collapse>
       </Container>
